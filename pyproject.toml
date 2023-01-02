@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "alice-qqbot"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "alice_qqbot"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+graia-ariadne = {extras = ["full"], version = "^0.10.2"}
+creart = "^0.2.2"
+graia-saya = "^0.0.17"
+graiax-silkcoder = "^0.3.5"
+pathlib = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+# 这里以清华源举例，你也可以使用其他源
+name = "tuna-tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = false
