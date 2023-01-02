@@ -16,7 +16,7 @@ channel = Channel.current()
 
 
 @channel.use(ListenerSchema(listening_events=[GroupMessage,FriendMessage]))
-# 同时接受两种类型 BBC做得到吗？
+# 同时接受两种类型 bbc的话做得到吗？
 async def alice_talk(app: Ariadne, sender: Group | Friend, message: MessageChain):
     if message.display == "爱丽丝":
          await app.send_message(
@@ -62,6 +62,6 @@ async def alice_talk(app: Ariadne, sender: Group | Friend, message: MessageChain
         else:
             await app.send_message(
                sender,
-               MessageChain("贴贴")
+               MessageChain("嗯,抱抱")
             )
 
