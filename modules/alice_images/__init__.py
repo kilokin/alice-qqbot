@@ -19,14 +19,9 @@ channel = Channel.current()
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def img(app: Ariadne, group: Group, message: MessageChain):
     if message.display == "爱丽丝 贴贴":
-        a = random.randint(1,2)
-        if a == 1:
-            await app.send_message(
-                group, 
-                MessageChain(Image(path=Path("data", "imgs", "yes.png")))
-            )
-        else:
-            await app.send_message(
-                group, 
-                MessageChain(Image(path=Path("data", "imgs", "no.png")))
-            )
+        await app.send_message(
+            group, 
+            MessageChain(random.choice(
+                [Image(path=Path("data","imgs","yes.png")),
+                 Image(path=Path("data","imgs","no.png"))]))
+        )

@@ -18,19 +18,12 @@ channel = Channel.current()
 async def getup(app: Ariadne, event: NudgeEvent):
     match event.context_type:
         case "group":
-            a = random.randint(1,2)
-            # 令爱丽丝随机发言，我知道这样实现很蠢
-            # 但水平低，想不出别的办法力（悲）
-            if a == 1:
-                await app.send_group_message(
-                    event.group_id,
-                    MessageChain("不要戳我啊,好痒")
-                    )
-            else:
-                await app.send_group_message(
-                    event.group_id,
-                    MessageChain("啊?再这样我要生气了哦")
-                    )
+            await app.send_group_message(
+                event.group_id,
+                MessageChain(random.choice(
+                    ("不要戳我啦，好痒",
+                    "啊？再这样我要生气了哦")))
+            )
         case "friend":
             await app.send_friend_message(
                 event.friend_id,

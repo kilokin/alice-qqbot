@@ -20,7 +20,7 @@ async def goodnight(app: Ariadne):
     voice_bytes_night = await silkcoder.async_encode(Path("data", "voice", "goodnight.m4a"))
     await app.send_group_message(
         group_id, 
-        MessageChain("晚安,米娜桑")
+        MessageChain("已经是晚上十点半了哦，晚安")
     )
     await app.send_group_message(
         group_id, 
@@ -32,7 +32,7 @@ async def goidmorning(app: Ariadne):
     voice_bytes_morning = await silkcoder.async_encode(Path("data", "voice", "goodmorning.m4a"))
     await app.send_group_message(
         group_id, 
-        MessageChain("早安,米娜桑")
+        MessageChain("现在是早上七点半，早安")
     )
     await app.send_group_message(
         group_id, 
