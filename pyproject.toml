@@ -14,6 +14,10 @@ graia-saya = "^0.0.17"
 graiax-silkcoder = "^0.3.5"
 pathlib = "^1.0.1"
 aiohttp = {extras = ["speedups"], version = "^3.8.3"}
+pillow = "^9.4.0"
+lxml = "^4.9.2"
+shortcut = "^0.0.2"
+graiax-shortcut = "^0.2.1"
 
 
 [build-system]
