@@ -18,19 +18,14 @@ from graia.ariadne.util.saya import listen, dispatch
 
 channel = Channel.current()
 
-channel.name("Bangumi")
-channel.description("发送'bangumi [番剧]'获取番剧详细信息")
-channel.author("Kilokin")
-
-
 @listen(GroupMessage)
-@dispatch(Twilight(FullMatch("/番剧查询").space(SpacePolicy.FORCE), RegexMatch(r".+") @ "para"))
-async def anime(app: Ariadne, group: Group, para: Annotated[MessageChain, ResultValue()]):
+@dispatch(Twilight(FullMatch("/番剧查询").space(SpacePolicy.FORCE), RegexMatch(r".+") @ "anime_name"))
+async def anime(app: Ariadne, group: Group, anime_name: Annotated[MessageChain, ResultValue()]):
     bangumi_headers = {
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
                   "Chrome/84.0.4147.135 Safari/537.36"}
-    url = URL("https://api.bgm.tv/search/subject/") / str(para).strip() % {
+    url = URL("https://api.bgm.tv/search/subject/") / str(anime_name).strip() % {
         "type": 2,
         "responseGroup": "Large",
         "max_results": 1

@@ -20,10 +20,6 @@ from PIL import Image as IMG, ImageFont, ImageDraw
 
 channel = Channel.current()
 
-channel.name("Birthday_searcher")
-channel.description("coming soon")
-channel.author("I_love_study")
-
 @listen(GroupMessage)
 @decorate(MatchContent("今天谁生日"))
 async def today_birthday(app: Ariadne, group: Group):
